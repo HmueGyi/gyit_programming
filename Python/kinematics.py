@@ -2,7 +2,7 @@ def main():
     initial_position = float(input("Enter initial position: "))
     initial_velocity = float(input("Enter initial velocity: "))
     acceleration = float(input("Enter acceleration: "))
-    time = float(input("Enter time: "))
+    time = float(input("Enter time for project: "))
     
     final_position = calculate_final_position(initial_position, initial_velocity, acceleration, time)
     
