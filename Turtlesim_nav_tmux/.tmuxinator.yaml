@@ -1,0 +1,33 @@
+name: tb3_humble
+root: ~
+
+windows:
+  - gazebo:
+      panes:
+        - |
+          source /opt/ros/humble/setup.bash
+          export TURTLEBOT3_MODEL=waffle
+          ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+  - slam:
+      panes:
+        - |
+          source /opt/ros/humble/setup.bash
+          export TURTLEBOT3_MODEL=waffle
+          ros2 launch slam_toolbox online_async_launch.py \
+            slam_params_file:=/opt/ros/humble/share/slam_toolbox/config/mapper_params_online_async.yaml
+
+  - nav2:
+      panes:
+        - |
+          source /opt/ros/humble/setup.bash
+          export TURTLEBOT3_MODEL=waffle
+          ros2 launch nav2_bringup navigation_launch.py \
+            use_sim_time:=true
+
+  - teleop:
+      panes:
+        - |
+          source /opt/ros/humble/setup.bash
+          export TURTLEBOT3_MODEL=waffle
+          ros2 run turtlebot3_teleop teleop_keyboard
